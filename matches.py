@@ -8,18 +8,29 @@ from datetime import datetime
 #Imports a custom function used for converting numbers to two char strings
 from custom import toString
 
-#Accounts for rescheduling of matches and team changes
-def clear_dota_events(service):
+#Accounts for rescheduling of matches and team changes by deleting dota events
+def clear_dota_events(service, progressBar, status):
+
+    #Gets all the upcoming dota events on the user's calendar
     now = datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     eventsResult = service.events().list(calendarId = "primary", timeMin = now, singleEvents = True, orderBy = "startTime").execute()
     events = eventsResult.get("items", [])
+
+    #Sets the progress bar max to the length of the events to be deleted
+    progressBar["maximum"] = len(events)
+
+    #Deletes upcoming dota events in calendar
     for event in events:
         if (event["description"][0:4] == "Dota"):
+            #Updates status label with count of events deleted
+            status["text"] = "Deleting match " + str(events.index(event) + 1) + " of " + str(len(events))
             service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+            #Moves the progress bar graphic
+            progressBar.step()
 
-def get_GosuGamer_matches(service):
+#Reads and adds all upcoming dota matches from GosuGamers website
+def get_GosuGamer_matches(service, progressBar, status):
     
-    print("Matches taken from GosuGamers website")
     #Gets the websites html to parse
     r = requests.get("http://www.gosugamers.net/dota2/gosubet")
     data = r.text
@@ -31,9 +42,13 @@ def get_GosuGamer_matches(service):
     #Finds the elements within the table
     elements = table.findAll("tr")
 
+    #Sets the progress bar max to increment in steps of four as D2MT processes matches
+    progressBar["maximum"] = len(elements) * 4
+
     for element in elements:
-        #Prints an extra empty line for clarity
-        print()
+
+        #Updates status label with count of events added
+        status["text"] = "Adding match " + str(elements.index(element) + 1) + " of " + str(len(elements))
         
         #Gets the html for the page dedicated to the match
         site = "http://www.gosugamers.net" + element.a["href"]
@@ -53,7 +68,8 @@ def get_GosuGamer_matches(service):
         league = heading.a.text
         summary = summary + "(" + league + ")"
         
-        print(summary)
+        #Updates quater step of progress bar for smoother progress
+        progressBar.step()
         
         #Gets the date and time of the match
         date = soup.find("p", class_ = "datetime is-upcomming").text.replace(" ", "").replace("\n", "").split(",")
@@ -73,8 +89,10 @@ def get_GosuGamer_matches(service):
             date[1] = toString(int(date[1]) - 1)
         date[2] = toString(time) + ":" + temp[1]
         dateTime = dateTime + date[1] + "T" + date[2] + ":00"
-        print(dateTime)
-
+        
+        #Updates quater step of progress bar for smoother progress
+        progressBar.step()
+        
         #Creates an end time for convience
         endDateTime = "2015-"
         months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -84,7 +102,9 @@ def get_GosuGamer_matches(service):
             endTime[0] = endTime[0] - 24
             date[1] = toString(int(date[1]) + 1)
         endDateTime = endDateTime + toString(months.index(date[0]) + 1) + "-" + date[1] + "T" + toString(endTime[0]) + ":" + endTime[1] + ":00"
-        print(endDateTime)
+
+        #Updates quater step of progress bar for smoother progress
+        progressBar.step()
 
         #Adds the match to the calendar as an event
         event = {
@@ -99,9 +119,10 @@ def get_GosuGamer_matches(service):
             'timeZone': 'America/Los_Angeles',
             }
         }
-
         event = service.events().insert(calendarId='primary', body=event).execute()
-        print('Event created: %s' % (event.get('htmlLink')))
-
-    print()
-    print("---------------Done-------------------")
+        
+        #Updates quater step of progress bar for smoother progress
+        progressBar.step()
+        
+    #Updates the status label to tell the user that everything is done
+    status["text"] = "Finished adding " + str(len(elements)) + " events"
