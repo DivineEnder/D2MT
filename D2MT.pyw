@@ -5,20 +5,23 @@ sys.stderr = open("errlog.txt", "w")
 
 #Imports several custom functions in different files
 from authorization import get_service
-from matches import clear_dota_events
+from matches import clear_duplicate_events
 from matches import get_GosuGamer_matches
+from matches import add_events
+from customwidget import FitListbox
 
 #Takes a package name and installs that package
 def install(package):
     import pip
     pip.main(["install", package])
 
-#Installs the needed modules for the script to run
+#Installs the needed modules for the script to ru4n
 install("httplib2")
 install("google-api-python-client")
 install("BeautifulSoup4")
 install("requests")
-install("tkinter")
+#Not need in python 3
+#install("python-tk")
 
 #Imports some GUI libraries
 import tkinter as tk
@@ -51,7 +54,7 @@ class Application:
 
         #Creates a quit button to quit the app
         self.quit = tk.Button(frame, text = "Quit", fg = "white", bg = "black", command = root.destroy)
-        self.quit.grid(column = 0, row = 2, pady = 2, padx = 10)
+        self.quit.grid(column = 2, row = 0, pady = 2, padx = 10)
 
         #Creates a progress bar for creating events
         self.progressBar = ttk.Progressbar(frame, orient = "horizontal", length = 200, mode = "determinate", maximum = 100)
@@ -61,6 +64,16 @@ class Application:
         self.status = tk.Label(frame, text = "", fg = "black")
         self.status.grid(column = 1, row = 1, pady = 2, padx = 2)
 
+        #Gets a list of matches from the GosuGamers website
+        self.matches = get_GosuGamer_matches()
+
+        #Creates a listbox full of preloaded matches
+        self.listbox = FitListbox(frame, selectmode = tk.EXTENDED, height = len(self.matches))
+        self.listbox.grid(column = 0, row = 2, padx = 4, pady = 4)
+        for self.match in self.matches:
+            self.listbox.insert(tk.END, self.match[0])
+        self.listbox.autowidth()
+
     #Creates a thread to add events alongside the render loop
     def create_thread(self):
         threading.Thread(target = self.add_events).start()
@@ -68,12 +81,17 @@ class Application:
     #Adds the matches to the user's google calendar
     def add_events(self):
         #Deletes the previously added dota 2 events
-        clear_dota_events(self.service, self.progressBar ,self.status)
+        #clear_dota_events(self.service, self.progressBar ,self.status)
+        
+        self.selectedMatches = []
+        for i in range(0, len(self.matches)):
+            if i in self.listbox.curselection():
+                self.selectedMatches.append(self.matches[i])
 
-        #GosuGamer matches
-        if (self.websites.current() == 0):
-            #Adds the upcoming matches taken off the GosuGamer website
-            get_GosuGamer_matches(self.service, self.progressBar, self.status)
+        clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+        
+        #Adds the upcoming matches taken off the GosuGamer website
+        add_events(self.service, self.selectedMatches, self.progressBar, self.status)
 
 #Creates a tkinter winodw loop
 root = tk.Tk()

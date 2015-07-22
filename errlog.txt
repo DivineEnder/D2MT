@@ -1,0 +1,463 @@
+Requirement already satisfied (use --upgrade to upgrade): httplib2 in c:\python34\lib\site-packages
+Requirement already satisfied (use --upgrade to upgrade): google-api-python-client in c:\python34\lib\site-packages
+Requirement already satisfied (use --upgrade to upgrade): httplib2>=0.8 in c:\python34\lib\site-packages (from google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): oauth2client>=1.4.6 in c:\python34\lib\site-packages (from google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): six>=1.6.1 in c:\python34\lib\site-packages (from google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): uritemplate>=0.6 in c:\python34\lib\site-packages (from google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): pyasn1==0.1.7 in c:\python34\lib\site-packages (from oauth2client>=1.4.6->google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): pyasn1-modules==0.0.5 in c:\python34\lib\site-packages (from oauth2client>=1.4.6->google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): rsa==3.1.4 in c:\python34\lib\site-packages (from oauth2client>=1.4.6->google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): simplejson>=2.5.0 in c:\python34\lib\site-packages (from uritemplate>=0.6->google-api-python-client)
+Requirement already satisfied (use --upgrade to upgrade): BeautifulSoup4 in c:\python34\lib\site-packages
+Requirement already satisfied (use --upgrade to upgrade): requests in c:\python34\lib\site-packages
+URL being requested: GET https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 16, in clear_duplicate_events
+    eventsResult = service.events().list(calendarId = "primary", timeMin = now, singleEvents = True, orderBy = "startTime").execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: GET https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json&orderBy=startTime&singleEvents=true&timeMin=2015-07-22T10%3A50%3A14.402178Z'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/fbh2ctfqalguuduqi4171t4k68?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/im0ve3cnpo39n4s89rkta6me7s?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/8ol0b4ocs3sqg99ur71vr8bsr4?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/3b6su2onj82mfb86hf43j5bcv4?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/4dsvh474ll7hv9e63j6assgef4?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/d1lhon3e2utdj3k4uei0o11s34?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 91, in add_events
+    clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 42, in clear_duplicate_events
+    service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/primary/events/b9vonf7gmkj7mo5fdqim5033po?'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python34\lib\logging\__init__.py", line 978, in emit
+    msg = self.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 106, in format
+    msg = logging.StreamHandler.format(self, record)
+  File "C:\Python34\lib\logging\__init__.py", line 828, in format
+    return fmt.format(record)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in format
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 55, in <listcomp>
+    for line in formatted.splitlines(True)
+  File "C:\Python34\lib\site-packages\pip\utils\logging.py", line 42, in get_indentation
+    return _log_state.indentation
+AttributeError: '_thread._local' object has no attribute 'indentation'
+Call stack:
+  File "C:\Python34\lib\threading.py", line 888, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Python34\lib\threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "C:\Python34\lib\threading.py", line 868, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\David\Documents\GitHub\D2MT\D2MT.pyw", line 94, in add_events
+    add_events(self.service, self.selectedMatches, self.progressBar, self.status)
+  File "C:\Users\David\Documents\GitHub\D2MT\matches.py", line 76, in add_events
+    event = service.events().insert(calendarId='primary', body=event).execute()
+  File "C:\Python34\lib\site-packages\googleapiclient\discovery.py", line 765, in method
+    logger.info('URL being requested: %s %s' % (httpMethod,url))
+Message: 'URL being requested: POST https://www.googleapis.com/calendar/v3/calendars/primary/events?alt=json'
+Arguments: ()
