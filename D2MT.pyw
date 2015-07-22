@@ -3,25 +3,16 @@ import sys
 sys.stderr = open("errlog.txt", "w")
 #Program does not run without this
 
+#Installs required modules
+import os
+os.system("install_dependencies.py")
+
 #Imports several custom functions in different files
 from authorization import get_service
 from matches import clear_duplicate_events
 from matches import get_GosuGamer_matches
 from matches import add_events
 from customwidget import FitListbox
-
-#Takes a package name and installs that package
-def install(package):
-    import pip
-    pip.main(["install", package])
-
-#Installs the needed modules for the script to ru4n
-install("httplib2")
-install("google-api-python-client")
-install("BeautifulSoup4")
-install("requests")
-#Not need in python 3
-#install("python-tk")
 
 #Imports some GUI libraries
 import tkinter as tk
