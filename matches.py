@@ -44,6 +44,11 @@ def clear_duplicate_events(service, progressBar, status, matches):
             #Checks for duplicate matches (same league and same time)
             elif (eventLeague == match[1] and eventTime == match[2]):
                 service.events().delete(calendarId = "primary", eventId = event["id"]).execute()
+
+        #Gets all the upcoming dota events on the user's calendar
+        now = datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+        eventsResult = service.events().list(calendarId = "primary", timeMin = now, singleEvents = True, orderBy = "startTime").execute()
+        events = eventsResult.get("items", [])
         
         #Moves the progress bar graphic
         progressBar.step()

@@ -1,18 +1,25 @@
 #Used to log errors to a text file
 import sys
 sys.stderr = open("errlog.txt", "w")
-#Program does not run without this
 
-#Installs required modules
-import os
-os.system("install_dependencies.py")
+try:
+    #Imports several custom functions in different files
+    from authorization import get_service
+    from matches import clear_duplicate_events
+    from matches import get_GosuGamer_matches
+    from matches import add_events
+    from customwidget import Table
+except ImportError:
+    #Installs required modules
+    import os
+    os.system("install_dependencies.py")
 
-#Imports several custom functions in different files
-from authorization import get_service
-from matches import clear_duplicate_events
-from matches import get_GosuGamer_matches
-from matches import add_events
-from customwidget import FitListbox
+    #Imports several custom functions in different files
+    from authorization import get_service
+    from matches import clear_duplicate_events
+    from matches import get_GosuGamer_matches
+    from matches import add_events
+    from customwidget import Table
 
 #Imports some GUI libraries
 import tkinter as tk
@@ -58,27 +65,37 @@ class Application:
         #Gets a list of matches from the GosuGamers website
         self.matches = get_GosuGamer_matches()
 
-        #Creates a listbox full of preloaded matches
-        self.listbox = FitListbox(frame, selectmode = tk.EXTENDED, height = len(self.matches))
-        self.listbox.grid(column = 0, row = 2, padx = 4, pady = 4)
+        #Gets all the data needed for the table from the matches
+        self.team1s = []
+        self.team2s = []
+        self.leagues = []
+        self.dates = []
+        self.times = []
         for self.match in self.matches:
-            self.listbox.insert(tk.END, self.match[0])
-        self.listbox.autowidth()
+            self.team1s.append(self.match[0].split(" Vs. ")[0])
+            self.team2s.append(self.match[0].split(" Vs. ")[1])
+            self.leagues.append(self.match[1])
+            self.dates.append(self.match[2].split("T")[0])
+            self.times.append(self.match[2].split("T")[1])
 
+        #Creates the customwidget Table to list the matches
+        self.matchbox = Table(frame, ["Team 1", "Team 2", "League/Tournament", "Date (MM/DD/YYYY)", "Time (PST)"], [self.team1s, self.team2s, self.leagues, self.dates, self.times])
+        self.matchbox.grid(row = 2, column = 0)
+        
     #Creates a thread to add events alongside the render loop
     def create_thread(self):
         threading.Thread(target = self.add_events).start()
         
     #Adds the matches to the user's google calendar
     def add_events(self):
-        #Deletes the previously added dota 2 events
-        #clear_dota_events(self.service, self.progressBar ,self.status)
-        
+
+        #Gets the highlighted matches from the table
         self.selectedMatches = []
         for i in range(0, len(self.matches)):
-            if i in self.listbox.curselection():
+            if i in self.matchbox.curselection():
                 self.selectedMatches.append(self.matches[i])
 
+        #Deletes duplicate matches already in google calendar
         clear_duplicate_events(self.service, self.progressBar, self.status, self.selectedMatches)
         
         #Adds the upcoming matches taken off the GosuGamer website
