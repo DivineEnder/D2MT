@@ -69,17 +69,15 @@ class Application:
         self.team1s = []
         self.team2s = []
         self.leagues = []
-        self.dates = []
-        self.times = []
+        self.datetimes = []
         for self.match in self.matches:
             self.team1s.append(self.match[0].split(" Vs. ")[0])
             self.team2s.append(self.match[0].split(" Vs. ")[1])
             self.leagues.append(self.match[1])
-            self.dates.append(self.match[2].split("T")[0])
-            self.times.append(self.match[2].split("T")[1])
+            self.datetimes.append(self.match[2].split("T")[0] + " @ " + self.match[2].split("T")[1])
 
         #Creates the customwidget Table to list the matches
-        self.matchbox = Table(frame, ["Team 1", "Team 2", "League/Tournament", "Date (MM/DD/YYYY)", "Time (PST)"], [self.team1s, self.team2s, self.leagues, self.dates, self.times])
+        self.matchbox = Table(frame, ["Team 1", "Team 2", "League/Tournament", "Date (MM/DD/YYYY) @ Time (PST)"], [self.team1s, self.team2s, self.leagues, self.datetimes])
         self.matchbox.grid(row = 2, column = 0)
         
     #Creates a thread to add events alongside the render loop

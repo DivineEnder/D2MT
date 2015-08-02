@@ -95,10 +95,27 @@ def get_GosuGamer_matches():
     soup = BeautifulSoup(data, "html.parser")
 
     #Finds the table that lists the matches
-    table = soup.find(text = "Dota 2 Upcoming Matches").parent.parent
-    table = table.find("table", class_ = "simple matches")
+    content = soup.find(text = "Dota 2 Upcoming Matches").parent.parent
+    table = content.find("table", class_ = "simple matches")
     #Finds the elements within the table
     elements = table.findAll("tr")
+
+##    page = content.find(text = "Next")
+##    while (page != None):
+##        print("http://www.gosugamers.net" + page.parent.parent["href"])
+##        r = requests.get("http://www.gosugamers.net" + page.parent.parent["href"])
+##        data = r.text
+##        soup = BeautifulSoup(data, "html.parser")
+##
+##        #Finds the table that lists the matches
+##        content = soup.find(text = "Dota 2 Upcoming Matches").parent.parent
+##        table = content.find("table", class_ = "simple matches")
+##        #Finds the elements within the table
+##        es = table.findAll("tr")
+##        for el in es:
+##            elements.append(el)
+##
+##        page = content.find(text = "Next")
 
     #Creates a list of matches to return
     matches = []
@@ -108,7 +125,7 @@ def get_GosuGamer_matches():
 
         #Creates a match list [teams][league][dateTime][endDateTime]
         match = []
-        
+
         #Gets the html for the page dedicated to the match
         site = "http://www.gosugamers.net" + element.a["href"]
         r = requests.get(site)
