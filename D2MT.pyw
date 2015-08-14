@@ -77,7 +77,11 @@ class Application:
             self.datetimes.append(self.match[2].split("T")[0] + " @ " + self.match[2].split("T")[1])
 
         #Creates the customwidget Table to list the matches
-        self.matchbox = Table(frame, ["Team 1", "Team 2", "League/Tournament", "Date (MM/DD/YYYY) @ Time (PST)"], [self.team1s, self.team2s, self.leagues, self.datetimes])
+        self.matchbox = Table(frame,
+                              ["Team 1", "Team 2", "League/Tournament", "Date (YYYY/MM/DD) @ Time (PST)"],
+                              [self.team1s, self.team2s, self.leagues, self.datetimes],
+                              betweenRowHeaders = ["vs.", "in", "on"],
+                              searchable = True)
         self.matchbox.grid(row = 2, column = 0)
         
     #Creates a thread to add events alongside the render loop
